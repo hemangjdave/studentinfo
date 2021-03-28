@@ -10,3 +10,8 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      show_sql: true
+      format_sql: true
+      generate_statistics: true
+      use_sql_comments: truest
