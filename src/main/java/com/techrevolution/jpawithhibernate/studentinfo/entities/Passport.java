@@ -1,5 +1,7 @@
 package com.techrevolution.jpawithhibernate.studentinfo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Passport {
 
     @Id
@@ -27,5 +30,6 @@ public class Passport {
     private String passportNumber;
 
     @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL , mappedBy = "passport")
+    @JsonIgnore
     private Student student;
 }

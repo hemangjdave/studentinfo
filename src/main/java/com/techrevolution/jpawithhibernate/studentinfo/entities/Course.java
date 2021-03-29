@@ -1,6 +1,7 @@
 package com.techrevolution.jpawithhibernate.studentinfo.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,13 +28,17 @@ public class Course {
     private String courseName;
 
     @ManyToMany(mappedBy = "courses")
+    @JsonIgnore
     private Set<Student> students;
 
-    @OneToMany(mappedBy = "course" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Review> reviews;
 
     @PrePersist
-    private void assignReferences(){
-        reviews.forEach(review -> review.setCourse(this));
+    private void assignReferences() {
+        if (reviews != null) {
+            reviews.forEach(review -> review.setCourse(this));
+        }
     }
 }

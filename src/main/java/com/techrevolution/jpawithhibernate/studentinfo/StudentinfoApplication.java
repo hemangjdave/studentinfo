@@ -26,7 +26,7 @@ public class StudentinfoApplication {
     @Bean
     public CommandLineRunner commandLineRunner() {
         return (args) -> {
-            saveStudent();
+//            saveStudent();
         };
     }
 
@@ -47,8 +47,6 @@ public class StudentinfoApplication {
                                                         Review.builder().review("WorthTheMoney").rating(5).build()
                                                 )
                                         ).build()
-//                                    Course.builder()
-//                                            .courseName("JavaConcurrencyInPractice").build()
                         )
                 )
                 .build();

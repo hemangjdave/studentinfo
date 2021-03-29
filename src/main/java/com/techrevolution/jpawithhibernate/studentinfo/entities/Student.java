@@ -1,6 +1,7 @@
 package com.techrevolution.jpawithhibernate.studentinfo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student {
 
     @Id
